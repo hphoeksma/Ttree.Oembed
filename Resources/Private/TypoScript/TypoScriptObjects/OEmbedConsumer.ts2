@@ -1,6 +1,7 @@
 prototype(Ttree.Oembed:OEmbedConsumer) {
 	@class = '\\Ttree\\Oembed\\TypoScript\\OEmbedConsumerImplementation'
 	uri = ${uri}
+    provider = ${provider}
 	maximumWidth = ${maximumWidth}
 	maximumHeight = ${maximumHeight}
 }

@@ -12,6 +12,10 @@ namespace Ttree\Oembed\TypoScript;
  *                                                                          */
 
 use Ttree\Oembed\Consumer;
+use Ttree\Oembed\Provider\DailyMotion;
+use Ttree\Oembed\Provider\Flickr;
+use Ttree\Oembed\Provider\Vimeo;
+use Ttree\Oembed\Provider\YouTube;
 use Ttree\Oembed\RequestParameters;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
@@ -54,6 +58,29 @@ class OEmbedConsumerImplementation extends AbstractTypoScriptObject
     }
 
     /**
+     * @return DailyMotion|Flickr|Vimeo|YouTube|null
+     */
+    public function getProvider()
+    {
+        if ($this->tsValue('provider'))
+        {
+            switch ($this->tsValue('provider'))
+            {
+                case 'vimeo':
+                    return new Vimeo();
+                case 'youtube':
+                    return new YouTube();
+                case 'dailymotion':
+                    return new DailyMotion();
+                case 'flickr':
+                    return new Flickr();
+                default:
+                    return null;
+            }
+        }
+    }
+
+    /**
      * @return integer
      */
     public function getMaximumWidth()
@@ -86,8 +113,9 @@ class OEmbedConsumerImplementation extends AbstractTypoScriptObject
         $this->prepareRequestParameters($consumer);
 
         $uri = $this->getUri();
+        $provider = $this->getProvider();
 
-        return $consumer->consume($uri);
+        return $consumer->consume($uri, $provider);
     }
 
     /**

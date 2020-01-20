@@ -29,3 +29,24 @@
       defaultValue: 'Enter caption here'
       ui:
         inlineEditable: true
+    provider:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Video provider'
+        reloadIfChanged: true
+        inspector:
+          group: 'options'
+          editor: 'Content/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              '':
+                label: 'Automatic'
+              'vimeo':
+                label: 'Vimeo'
+              'youtube':
+                label: 'YouTube'
+              'dailymotion':
+                label: 'DailyMotion'
+              'flickr':
+                label: 'Flickr'

@@ -18,9 +18,11 @@ prototype(Ttree.Oembed:Resource) < prototype(TYPO3.Neos:Content) {
 	}
 
 	hasCaption = ${q(node).property('hasCaption')}
-	uri = ${q(node).property('uri')}
+    uri = ${q(node).property('uri')}
 	@override.uri = ${this.uri}
-	maximumWidth = 450
+    provider = ${q(node).property('provider')}
+    @override.provider = ${this.provider}
+    maximumWidth = 450
 	@override.maximumWidth = ${this.maximumWidth}
 	maximumHeight = 280
 	@override.maximumHeight = ${this.maximumHeight}
