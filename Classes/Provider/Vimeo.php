@@ -26,13 +26,13 @@ class Vimeo extends Provider
     public function __construct()
     {
         parent::__construct(
-            'http://www.vimeo.com/api/oembed.json',
+            'https://www.vimeo.com/api/oembed.json',
             [
-                'http://*.vimeo.com/*',
-                'http://vimeo.com/channels/*/*',
-                'http://vimeo.com/groups/*/videos/*'
+                'https://*.vimeo.com/*',
+                'https://vimeo.com/channels/*/*',
+                'https://vimeo.com/groups/*/videos/*'
             ],
-            'http://www.vimeo.com',
+            'https://www.vimeo.com',
             'Vimeo'
         );
     }

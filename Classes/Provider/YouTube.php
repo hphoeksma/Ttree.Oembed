@@ -26,11 +26,11 @@ class YouTube extends Provider
     public function __construct()
     {
         parent::__construct(
-            'http://www.youtube.com/oembed',
+            'https://www.youtube.com/oembed',
             [
-                'http://*.youtube.com/*'
+                'https://*.youtube.com/*'
             ],
-            'http://www.youtube.com',
+            'https://www.youtube.com',
             'YouTube'
         );
     }

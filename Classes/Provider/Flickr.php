@@ -26,11 +26,11 @@ class Flickr extends Provider
     public function __construct()
     {
         parent::__construct(
-            'http://www.flickr.com/services/oembed',
+            'https://www.flickr.com/services/oembed',
             [
-                'http://*.flickr.com/*'
+                'https://*.flickr.com/*'
             ],
-            'http://www.flickr.com',
+            'https://www.flickr.com',
             'Flickr'
         );
     }

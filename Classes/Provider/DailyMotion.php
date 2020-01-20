@@ -26,11 +26,11 @@ class DailyMotion extends Provider
     public function __construct()
     {
         parent::__construct(
-            'http://www.dailymotion.com/services/oembed?format=json',
+            'https://www.dailymotion.com/services/oembed?format=json',
             [
-                'http://www.dailymotion.com/video/*',
+                'https://www.dailymotion.com/video/*',
             ],
-            'http://www.dailymotion.com',
+            'https://www.dailymotion.com',
             'DailyMotion'
         );
     }
