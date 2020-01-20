@@ -35,6 +35,11 @@ class OEmbedConsumerImplementation extends AbstractTypoScriptObject
     protected $uri;
 
     /**
+     * @var string
+     */
+    protected $provider;
+
+    /**
      * @var integer
      */
     protected $maxWidth;
@@ -62,21 +67,18 @@ class OEmbedConsumerImplementation extends AbstractTypoScriptObject
      */
     public function getProvider()
     {
-        if ($this->tsValue('provider'))
+        switch ($this->tsValue('provider'))
         {
-            switch ($this->tsValue('provider'))
-            {
-                case 'vimeo':
-                    return new Vimeo();
-                case 'youtube':
-                    return new YouTube();
-                case 'dailymotion':
-                    return new DailyMotion();
-                case 'flickr':
-                    return new Flickr();
-                default:
-                    return null;
-            }
+            case 'vimeo':
+                return new Vimeo();
+            case 'youtube':
+                return new YouTube();
+            case 'dailymotion':
+                return new DailyMotion();
+            case 'flickr':
+                return new Flickr();
+            default:
+                return null;
         }
     }
 
