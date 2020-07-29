@@ -44,32 +44,32 @@ abstract class AbstractResource
     protected $title = '';
 
     /**
-     * Author Name.
+     * Author _name.
      *
      * @var string
      */
-    protected $authorName = '';
+    protected $author_name = '';
 
     /**
      * Author URL.
      *
      * @var string
      */
-    protected $authorUrl = '';
+    protected $author_url = '';
 
     /**
-     * Provider Name.
+     * Provider _name.
      *
      * @var string
      */
-    protected $providerName = '';
+    protected $provider_name = '';
 
     /**
      * Provider URL.
      *
      * @var string
      */
-    protected $providerUrl = '';
+    protected $provider_url = '';
 
     /**
      * Cache Age
@@ -83,7 +83,7 @@ abstract class AbstractResource
      *
      * @var string
      */
-    protected $thumbnailUrl = '';
+    protected $thumbnail_url = '';
 
     /**
      * Thumbnail Width
@@ -98,6 +98,90 @@ abstract class AbstractResource
      * @var integer
      */
     protected $thumbnailHeight = 0;
+
+    /**
+     * @var integer
+     */
+    protected $duration = 0;
+
+    /**
+     * @var string
+     */
+    protected $description = '';
+
+    /**
+     * @var string
+     */
+    protected $upload_date = '';
+
+    /**
+     * @var string
+     */
+    protected $uri = '';
+
+    /**
+     * @return int
+     */
+    public function getDuration(): int
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param int $duration
+     */
+    public function setDuration(int $duration)
+    {
+        $this->duration = $duration;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUpload_date(): string
+    {
+        return $this->upload_date;
+    }
+
+    /**
+     * @param string $upload_date
+     */
+    public function setUpload_date(string $upload_date)
+    {
+        $this->upload_date = $upload_date;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUri(): string
+    {
+        return $this->uri;
+    }
+
+    /**
+     * @param string $uri
+     */
+    public function setUri(string $uri)
+    {
+        $this->uri = $uri;
+    }
 
     /**
      * Get a string representation of the oEmbed resource.
@@ -124,25 +208,28 @@ abstract class AbstractResource
         return [
             'type' => $this->type,
             'version' => $this->version,
-            'authorName' => $this->authorUrl,
-            'authorUrl' => $this->authorUrl,
-            'providerName' => $this->providerName,
-            'providerUrl' => $this->providerUrl,
+            'author_name' => $this->author_url,
+            'author_url' => $this->author_url,
+            'provider_name' => $this->provider_name,
+            'provider_url' => $this->provider_url,
             'cacheAge' => $this->cacheAge,
-            'thumnailUrl' => $this->thumbnailUrl,
+            'thumnail_url' => $this->thumbnail_url,
             'thumnailWidth' => $this->thumbnailWidth,
             'thumnailHeight' => $this->thumbnailHeight,
+            'uri' => $this->uri,
+            'upload_date' => $this->upload_date,
+            'description' => $this->description,
             'content' => (string)$this
         ];
     }
 
     /**
-     * @param string $authorName
+     * @param string $author_name
      * @return \Ttree\Oembed\Resource\AbstractResource
      */
-    public function setAuthorName($authorName)
+    public function setAuthor_name($author_name)
     {
-        $this->authorName = $authorName;
+        $this->author_name = $author_name;
 
         return $this;
     }
@@ -150,18 +237,18 @@ abstract class AbstractResource
     /**
      * @return string
      */
-    public function getAuthorName()
+    public function getAuthor_name()
     {
-        return $this->authorName;
+        return $this->author_name;
     }
 
     /**
-     * @param string $authorUrl
+     * @param string $author_url
      * @return \Ttree\Oembed\Resource\AbstractResource
      */
-    public function setAuthorUrl($authorUrl)
+    public function setAuthor_url($author_url)
     {
-        $this->authorUrl = $authorUrl;
+        $this->author_url = $author_url;
 
         return $this;
     }
@@ -169,9 +256,9 @@ abstract class AbstractResource
     /**
      * @return string
      */
-    public function getAuthorUrl()
+    public function getAuthor_url()
     {
-        return $this->authorUrl;
+        return $this->author_url;
     }
 
     /**
@@ -194,12 +281,12 @@ abstract class AbstractResource
     }
 
     /**
-     * @param string $providerName
+     * @param string $provider_name
      * @return \Ttree\Oembed\Resource\AbstractResource
      */
-    public function setProviderName($providerName)
+    public function setProvider_name($provider_name)
     {
-        $this->providerName = $providerName;
+        $this->provider_name = $provider_name;
 
         return $this;
     }
@@ -207,18 +294,18 @@ abstract class AbstractResource
     /**
      * @return string
      */
-    public function getProviderName()
+    public function getProvider_name()
     {
-        return $this->providerName;
+        return $this->provider_name;
     }
 
     /**
-     * @param string $providerUrl
+     * @param string $provider_url
      * @return \Ttree\Oembed\Resource\AbstractResource
      */
-    public function setProviderUrl($providerUrl)
+    public function setProvider_url($provider_url)
     {
-        $this->providerUrl = $providerUrl;
+        $this->provider_url = $provider_url;
 
         return $this;
     }
@@ -226,9 +313,9 @@ abstract class AbstractResource
     /**
      * @return string
      */
-    public function getProviderUrl()
+    public function getProvider_url()
     {
-        return $this->providerUrl;
+        return $this->provider_url;
     }
 
     /**
@@ -251,12 +338,12 @@ abstract class AbstractResource
     }
 
     /**
-     * @param string $thumbnailUrl
+     * @param string $thumbnail_url
      * @return \Ttree\Oembed\Resource\AbstractResource
      */
-    public function setThumbnailUrl($thumbnailUrl)
+    public function setThumbnail_url($thumbnail_url)
     {
-        $this->thumbnailUrl = $thumbnailUrl;
+        $this->thumbnail_url = $thumbnail_url;
 
         return $this;
     }
@@ -264,9 +351,9 @@ abstract class AbstractResource
     /**
      * @return string
      */
-    public function getThumbnailUrl()
+    public function getThumbnail_url()
     {
-        return $this->thumbnailUrl;
+        return $this->thumbnail_url;
     }
 
     /**
